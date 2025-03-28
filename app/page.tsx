@@ -12,7 +12,7 @@ export default async function Home() {
         {session ? (
           <p>Velkommen, {session.user?.name}!</p>
         ) : (
-          <div>
+          <div className="flex flex-col gap-10 items-center">
             <h1>Ingen å dra på ... med?</h1>
 
             <LinkButton text="BLI KOMPIS" url="/login" />

@@ -27,31 +27,34 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex items-center justify-center">
+    <div className="flex items-center justify-center mt-40">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 items-center"
+        className="flex flex-col gap-4 items-center w-72"
       >
-        <h1 className="text-2xl font-bold">Logg inn</h1>
+        <h1 className="text-2xl font-bold mb-8">Logg inn</h1>
         <input
-          className="border p-2 rounded"
-          type="email"
+          className="border p-2 rounded w-full"
+          type="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
+          placeholder="E-post"
         />
         <input
-          className="border p-2 rounded"
-          type="password"
+          className="border p-2 rounded w-full"
+          type="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Passord"
         />
         {error && <p className="text-red-500">{error}</p>}
-        <button className="bg-black text-white px-4 py-2 rounded" type="submit">
+        <button
+          className="bg-black text-white px-4 py-2 rounded w-full"
+          type="submit"
+        >
           Logg inn
         </button>
       </form>
-    </main>
+    </div>
   );
 }

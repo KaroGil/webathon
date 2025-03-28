@@ -1,17 +1,7 @@
 import LinkButton from "./linkButton";
+import { interests } from "../components/interests";
 
-export default function HobbyMenu() {
-  const interests = [
-    "Fotball",
-    "Basket",
-    "Håndball",
-    "Løping",
-    "Sykling",
-    "Svømming",
-    "Tennis",
-    "Golf",
-    "Klatring",
-  ];
+export default function InterestMenu() {
   return (
     <div className="flex flex-col gap-8 items-center justify-center m-6 font-bold text-xl">
       <h1>Hvilke interesser har du?</h1>
@@ -20,8 +10,8 @@ export default function HobbyMenu() {
           {interests.concat(interests).map((interest, index) => (
             <LinkButton
               key={index}
-              text={interest}
-              url={`/hobbies/${interest.toLowerCase()}`}
+              text={interest.name}
+              url={`/hobbies/${interest.slug}`}
             />
           ))}
         </div>

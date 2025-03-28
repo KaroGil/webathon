@@ -12,4 +12,5 @@ export const interests = [
   { name: "Tennis", slug: "tennis" },
   { name: "Svømming", slug: "svomming" },
   { name: "Yoga", slug: "yoga" },
+  { name: "Rust", slug: "rust" },
 ];

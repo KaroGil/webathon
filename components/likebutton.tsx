@@ -15,11 +15,11 @@ export function LikeButton() {
   return (
     <button
       onClick={() => handleClick()}
-      className={`flex items-center gap-2 ${
-        isClicked ? "bg-gray-400" : "bg-gray-300"
+      className={`flex items-center gap-2  ${
+        isClicked ? "bg-card-muted" : "bg-background"
       } px-2 rounded-full`}
     >
-      <p>💙</p>
+      <p className="text-lg">♥︎</p>
       <p>{likes}</p>
     </button>
   );

@@ -1,4 +1,4 @@
-import Button from "./button";
+import LinkButton from "./linkButton";
 
 export default function HobbyMenu() {
   const interests = [
@@ -18,7 +18,11 @@ export default function HobbyMenu() {
       <div className="w-full max-w-screen overflow-hidden">
         <div className="animate-scroll flex gap-4 whitespace-nowrap w-max">
           {interests.concat(interests).map((interest, index) => (
-            <Button key={index} text={interest} />
+            <LinkButton
+              key={index}
+              text={interest}
+              url={`/hobbies/${interest.toLowerCase()}`}
+            />
           ))}
         </div>
       </div>

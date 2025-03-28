@@ -5,5 +5,7 @@ interface Props {
 }
 
 export default async function HobbyPage({ params }: Props) {
-  return <div>{params.slug}</div>;
+  const { slug } = params;
+
+  return <div>{slug}</div>;
 }

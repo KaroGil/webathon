@@ -3,6 +3,8 @@
 :root {
   --background: #fffaef;
   --foreground: #000000;
+  --card:#f4ede0;
+  --card-muted:#e0dace;
 }
 
 @theme inline {
@@ -28,6 +30,15 @@ body {
 @tailwind utilities;
 
 @layer utilities {
+  .bg-card {
+    background-color: var(--card);
+  }
+  .bg-card-muted {
+    background-color: var(--card-muted);
+  }
+  .bg-background {
+    background-color: var(--background);
+  }
   .animate-scroll {
     animation: scroll-left 20s linear infinite;
   }

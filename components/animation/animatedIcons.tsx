@@ -82,6 +82,6 @@ export const AnimatedIcon = ({
       repeat: Infinity,
     }}
   >
-    <Image src={icon} alt="floating turtle" height={100} width={100} />
+    <Image src={icon} alt="floating icon" height={100} width={100} />
   </motion.div>
 );

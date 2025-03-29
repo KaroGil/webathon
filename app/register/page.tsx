@@ -4,20 +4,30 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
   const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
+    {
+      /** TODO: bytte ut med registration */
+    }
     const res = await signIn("credentials", {
       email,
       password,
       redirect: false,
       callbackUrl: "/",
     });
+
+    if (password !== repeatPassword) {
+      setError("Passordene må være like");
+      return;
+    }
 
     if (res?.error) {
       setError("Feil e-post eller passord");
@@ -33,7 +43,14 @@ export default function LoginPage() {
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 items-center w-72"
       >
-        <h1 className="text-2xl font-bold mb-8">Logg inn</h1>
+        <h1 className="text-2xl font-bold mb-8">Registrer deg</h1>
+        <input
+          className="border p-2 rounded w-full"
+          type="Navn"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Navn"
+        />
         <input
           className="border p-2 rounded w-full"
           type="Email"
@@ -48,18 +65,25 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Passord"
         />
+        <input
+          className="border p-2 rounded w-full"
+          type="Password"
+          value={repeatPassword}
+          onChange={(e) => setRepeatPassword(e.target.value)}
+          placeholder="Gjenta passord"
+        />
         {error && <p className="text-red-500">{error}</p>}
         <button
           className="bg-black text-white px-4 py-2 rounded w-full"
           type="submit"
         >
-          Logg inn
+          Register deg
         </button>
       </form>
       <p className="mt-4">
-        Er du ikke kompis enda?¿ {""}
-        <Link href="/register" className="hover:underline">
-          Registrer deg
+        Er du allerede kompis? {""}
+        <Link href="/login" className="hover:underline">
+          Logg inn
         </Link>
       </p>
     </div>

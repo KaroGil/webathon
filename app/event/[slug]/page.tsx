@@ -3,6 +3,7 @@ import { formatDateWithDay, formatTime } from "@/components/lib/date-utils";
 import { Event, getEventById } from "@/components/types/post";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, User } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -74,13 +75,31 @@ function EventButtons() {
   );
 }
 
+type Comment = {
+  user: string;
+  text: string;
+  time: string;
+};
+
 function CommentSection() {
-  const [comments, setComments] = useState<string[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
+  const { data: session } = useSession();
+  const user = session?.user;
 
   const handleAddComment = () => {
-    if (newComment.trim() === "") return;
-    setComments((prev) => [...prev, newComment.trim()]);
+    if (newComment.trim() === "" || !user) return;
+
+    const newCommentObj: Comment = {
+      user: user.name || "Anonym",
+      text: newComment.trim(),
+      time: new Date().toLocaleString("no-NO", {
+        dateStyle: "short",
+        timeStyle: "short",
+      }),
+    };
+
+    setComments((prev) => [...prev, newCommentObj]);
     setNewComment("");
   };
 
@@ -93,7 +112,17 @@ function CommentSection() {
             key={index}
             className="bg-primary p-2 rounded-md shadow-md text-sm"
           >
-            {comment}
+            <div className="flex">
+              <div className="w-8 h-8 inline-block mr-2 bg-background rounded-full relative">
+                <User className="absolute mx-auto size-3 w-full h-full my-auto p-1" />
+              </div>
+              <div>
+                <p className="font-semibold">{comment.user}</p>
+                <p className="text-xs text-gray-500 mb-2">{comment.time}</p>
+              </div>
+            </div>
+
+            <p>{comment.text}</p>
           </div>
         ))}
       </div>

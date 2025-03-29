@@ -1,3 +1,4 @@
+import { users } from "@/components/types/user";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -10,19 +11,23 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const user = {
-          id: "1",
-          name: "Ole Brumm",
-          email: "OleBrumm@example.com",
-        };
-
-        if (
-          credentials?.email === "OleBrumm@example.com" &&
-          credentials?.password === "pass123"
-        ) {
-          return user;
+        if (!credentials?.email || !credentials?.password) {
+          return null;
         }
 
+        // Søk etter brukeren i listen basert på e-post og passord
+        const user = users.find(
+          (user) =>
+            user.email === credentials.email &&
+            user.password === credentials.password
+        );
+
+        // Hvis brukeren finnes, returner brukerobjektet
+        if (user) {
+          return { id: user.id, name: user.name, email: user.email };
+        }
+
+        // Hvis ingen match finnes, returner null
         return null;
       },
     }),

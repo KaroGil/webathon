@@ -1,21 +1,14 @@
 export type Interest = { name: string; infinitiv: string; slug: string };
 
-export function getInterestBySlug(slug: string) {
+import { promises as fs } from "fs";
+import path from "path";
+
+export async function getInterestBySlug(
+  slug: string
+): Promise<Interest | undefined> {
+  const filePath = path.join(process.cwd(), "public", "interests.json");
+  const file = await fs.readFile(filePath, "utf-8");
+  const interests: Interest[] = JSON.parse(file);
+
   return interests.find((interest) => interest.slug === slug);
 }
-
-export const interests: Interest[] = [
-  { name: "Bading", infinitiv: "Bade", slug: "bade" },
-  { name: "Fotball", infinitiv: "Fotball", slug: "fotball" },
-  { name: "Ski", infinitiv: "Ski", slug: "ski" },
-  { name: "Klatring", infinitiv: "Klatre", slug: "klatre" },
-  { name: "Håndball", infinitiv: "Håndball", slug: "handball" },
-  { name: "Løping", infinitiv: "Løpe", slug: "lope" },
-  { name: "Basketball", infinitiv: "Basketball", slug: "basketball" },
-  { name: "Golf", infinitiv: "Golf", slug: "golf" },
-  { name: "Kotlin", infinitiv: "Kotlin", slug: "kotlin" },
-  { name: "Tennis", infinitiv: "Tennis", slug: "tennis" },
-  { name: "Fly", infinitiv: "Fly", slug: "fly" },
-  { name: "Yoga", infinitiv: "Yoga", slug: "yoga" },
-  { name: "Rust", infinitiv: "Rust", slug: "rust" },
-];

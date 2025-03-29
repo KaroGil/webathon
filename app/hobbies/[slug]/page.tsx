@@ -11,6 +11,13 @@ interface PageProps {
 export default async function HobbyPage({ params }: PageProps) {
   const { slug } = await params;
 
+  // const hobby = getInterestBySlug(slug);
+  // if (hobby) {
+  //   if (hobby.name === "Bade") {
+  //     return <div>Hobby: {hobby.name}</div>;
+  //   }
+  // }
+
   const filteredPosts = posts.filter((post) => post.hobby?.slug === slug);
 
   return (

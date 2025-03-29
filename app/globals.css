@@ -3,8 +3,8 @@
 :root {
   --background: #fffaef;
   --foreground: #000000;
-  --card:#f4ede0;
-  --card-muted:#e0dace;
+  --card: #f4ede0;
+  --card-muted: #e0dace;
 }
 
 @theme inline {

@@ -2,6 +2,7 @@ import InterestsMenu from "@/components/interestsMenu";
 import LinkButton from "../components/linkButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@lib/authOptions";
+import Geolocation from "@/components/geolocation";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -20,6 +21,7 @@ export default async function Home() {
         )}
       </div>
       <InterestsMenu />
+      <Geolocation />
     </div>
   );
 }

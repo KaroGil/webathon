@@ -20,15 +20,15 @@ const jobOpenings = [
   },
 ];
 
-// ✅ The type for App Router page props
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function JobPage({ params }: PageProps) {
-  const job = jobOpenings.find((job) => job.slug === params.slug);
+  const { slug } = await params;
+  const job = jobOpenings.find((job) => job.slug === slug);
 
   if (!job) {
     notFound();

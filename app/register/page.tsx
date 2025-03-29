@@ -14,12 +14,20 @@ export default function RegisterPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
+    {
+      /** TODO: bytte ut med registration */
+    }
     const res = await signIn("credentials", {
       email,
       password,
       redirect: false,
       callbackUrl: "/",
     });
+
+    if (password !== repeatPassword) {
+      setError("Passordene må være like");
+      return;
+    }
 
     if (res?.error) {
       setError("Feil e-post eller passord");

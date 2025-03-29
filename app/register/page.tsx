@@ -2,6 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex items-center justify-center mt-16">
+    <div className="flex items-center justify-center mt-8 flex-col">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 items-center w-72"
@@ -71,6 +72,12 @@ export default function RegisterPage() {
           Register deg
         </button>
       </form>
+      <p className="mt-4">
+        Er du allerede kompis? {""}
+        <Link href="/login" className="hover:underline">
+          Logg inn
+        </Link>
+      </p>
     </div>
   );
 }

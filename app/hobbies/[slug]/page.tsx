@@ -1,4 +1,3 @@
-import { getInterestBySlug } from "@/components/interests";
 import { NewPost } from "@/components/new-post";
 import { Posts } from "@/components/posts";
 import { posts } from "@/data/posts";
@@ -12,13 +11,10 @@ interface PageProps {
 export default async function HobbyPage({ params }: PageProps) {
   const { slug } = await params;
 
-  const interest = getInterestBySlug(slug);
-
   const filteredPosts = posts.filter((post) => post.hobby?.slug === slug);
 
   return (
-    <div className="relative w-full mx-4 space-y-4">
-      <div className="capitalize w-full flex justify-center text-xl py-4">{`${interest?.infinitiv}kompis`}</div>
+    <div className="relative w-full mx-4 space-y-4 mt-4">
       <div className="">
         <NewPost />
       </div>

@@ -25,7 +25,9 @@ export default function CareersPage() {
     <div className="min-h-screen bg-background text-background">
       <main className="max-w-4xl mx-auto px-6 py-12">
         <section>
-          <h2 className="text-2xl font-semibold mb-6">Ledige stillinger</h2>
+          <h2 className="text-foreground text-2xl font-semibold mb-6">
+            Ledige stillinger
+          </h2>
           {jobOpenings.map((job, index) => (
             <div
               key={index}
@@ -39,7 +41,7 @@ export default function CareersPage() {
               <LinkButton
                 text="Se stilling"
                 url={job.link}
-                className="mt-4 inline-block px-4 py-2 border border-white rounded-md text-white hover:bg-white hover:text-black transition w-fit"
+                className="mt-4 inline-block px-4 py-2 border border-background rounded-md text-background hover:bg-background hover:text-foreground transition w-fit"
               />
             </div>
           ))}

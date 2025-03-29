@@ -13,8 +13,9 @@ export const interests: Interest[] = [
   { name: "Løping", infinitiv: "Løpe", slug: "lope" },
   { name: "Basketball", infinitiv: "Basketball", slug: "basketball" },
   { name: "Golf", infinitiv: "Golf", slug: "golf" },
+  { name: "Kotlin", infinitiv: "Kotlin", slug: "kotlin" },
   { name: "Tennis", infinitiv: "Tennis", slug: "tennis" },
-  { name: "Svømming", infinitiv: "Svømme", slug: "svomme" },
-  { name: "Yoga", infinitiv: "Soga", slug: "yoga" },
+  { name: "Fly", infinitiv: "Fly", slug: "fly" },
+  { name: "Yoga", infinitiv: "Yoga", slug: "yoga" },
   { name: "Rust", infinitiv: "Rust", slug: "rust" },
 ];

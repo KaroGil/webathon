@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AnimatedIcons } from "@/components/animation/animatedIcons";
+import { DiGithubBadge } from "react-icons/di";
+
 
 export function Footer() {
   return (
@@ -11,9 +13,12 @@ export function Footer() {
             Om oss
           </Link>
         </div>
+        <div className="flex flex-row items-center justify-center w-full">
+        <DiGithubBadge href="https://github.com/KaroGil/webathon"/>
         <p className="mt-10 flex justify-center">
           Laget av Ninja Turtles 🐢 Mille, Karolina, Johanne og Henrik
         </p>
+        </div>
       </footer>
     </AnimatedIcons>
   );

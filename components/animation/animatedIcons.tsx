@@ -5,9 +5,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import turtle from "@/public/turtle.png";
 import type { StaticImageData } from "next/image";
+import duck from "@/public/duck.png";
 
 type AnimatedIconsProps = {
   n: number;
+  bade?: boolean;
   children: React.ReactNode;
 };
 
@@ -16,7 +18,7 @@ type IconData = {
   y: string;
 };
 
-export const AnimatedIcons = ({ n, children }: AnimatedIconsProps) => {
+export const AnimatedIcons = ({ n, bade, children }: AnimatedIconsProps) => {
   const [iconsData, setIconsData] = useState<IconData[]>([]);
 
   useEffect(() => {
@@ -26,6 +28,11 @@ export const AnimatedIcons = ({ n, children }: AnimatedIconsProps) => {
     }));
     setIconsData(generated);
   }, [n]);
+
+  let icon = turtle;
+  if (bade) {
+    icon = duck;
+  }
 
   return (
     <div className="relative">
@@ -38,7 +45,7 @@ export const AnimatedIcons = ({ n, children }: AnimatedIconsProps) => {
             yOffset={pos.y}
             delay={index * 0.5}
             repeatDelay={5}
-            icon={turtle}
+            icon={icon}
           />
         ))}
       </div>

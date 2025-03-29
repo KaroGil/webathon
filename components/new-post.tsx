@@ -35,7 +35,7 @@ export function NewPost() {
             onClick={togglePopover}
           />
           {/* Popover innhold */}
-          <div className="fixed top-1/2 left-1/2 z-50 w-80 p-6 bg-white border border-gray-300 rounded-md shadow-md transform -translate-x-1/2 -translate-y-1/2">
+          <div className="fixed top-1/2 left-1/2 z-50 w-80 p-6 bg-white border rounded-md shadow-md transform -translate-x-1/2 -translate-y-1/2">
             <h4 className="text-lg font-semibold mb-2">Nytt arrangement</h4>
             <div className="space-y-2">
               <label className="block text-sm">Dato:</label>

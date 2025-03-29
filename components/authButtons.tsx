@@ -1,27 +1,23 @@
 "use client";
 
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
+import { ProfileButton } from "./profile-button";
+import { Button } from "./ui/button";
 
 export default function AuthButtons() {
   const { data: session } = useSession();
+  const user = { id: 1, name: "Ola Nordmann" };
 
   if (session) {
-    return (
-      <button
-        onClick={() => signOut({ callbackUrl: "/" })}
-        className={`bg-background text-foreground px-4 py-2 rounded mx-4 w-30 font-bold hover:bg-foreground hover:text-background transition-all duration-300 `}
-      >
-        Logg ut
-      </button>
-    );
+    return <ProfileButton userId={user.id} />;
   }
 
   return (
-    <button
+    <Button
       onClick={() => signIn()}
-      className={`bg-background text-foreground px-4 py-2 rounded mx-4 w-30 font-bold hover:bg-foreground hover:text-background round transition-all duration-300 `}
+      className={`font-bold hover:bg-foreground hover:text-background round transition-all duration-300 `}
     >
       Logg inn
-    </button>
+    </Button>
   );
 }

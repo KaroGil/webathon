@@ -13,7 +13,7 @@ export type Post = {
 
 export function Posts({ post }: { post: Post }) {
   return (
-    <div className="rounded-xl relative border border-gray-300 p-4 bg-card">
+    <div className="rounded-xl relative border p-4 bg-primary">
       <p className="font-bold">📍{post.place}</p>
       <p>📅{formatDateWithDay(post.date)}</p>
       <p>🕗{formatTime(post.date)}</p>

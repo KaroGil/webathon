@@ -3,7 +3,6 @@ import { Post } from "@/components/posts";
 import { posts } from "@/components/types/post";
 import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
-import Link from "next/link";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
@@ -24,9 +23,11 @@ export default function ProfilePage() {
         {myEvents.length > 0 ? (
           <ul className="space-y-2 mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {myEvents.map((event) => (
-              <Link href={`/event/${event.id}`} key={event.id}>
-                <Post key={event.date.toISOString()} post={event} />
-              </Link>
+              <Post
+                key={event.date.toISOString()}
+                post={event}
+                link={`/event/${event.id}`}
+              />
             ))}
           </ul>
         ) : (

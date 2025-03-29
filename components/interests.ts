@@ -16,4 +16,5 @@ export const interests: Interest[] = [
   { name: "Tennis", infinitiv: "Tennis", slug: "tennis" },
   { name: "Svømming", infinitiv: "Svømme", slug: "svomme" },
   { name: "Yoga", infinitiv: "Soga", slug: "yoga" },
+  { name: "Rust", infinitiv: "Rust", slug: "rust" },
 ];

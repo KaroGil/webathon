@@ -1,5 +1,5 @@
 import LinkButton from "./linkButton";
-import { interests } from "../components/interests";
+import { interests } from "./types/interests";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@lib/authOptions";

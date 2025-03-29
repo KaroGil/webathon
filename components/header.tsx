@@ -3,7 +3,8 @@
 import Link from "next/link";
 import AuthButtons from "@/components/authButtons";
 import { usePathname } from "next/navigation";
-import { getInterestBySlug } from "./interests";
+import { getInterestBySlug } from "./types/interests";
+import { getEventById } from "./types/post";
 
 export function Header() {
   const pathname = usePathname();
@@ -14,6 +15,11 @@ export function Header() {
     const hobby = pathname.split("/")[2];
     const name = getInterestBySlug(hobby);
     title = `${name?.infinitiv?.toUpperCase()}kompis`;
+  }
+  if (pathname.startsWith("/event/")) {
+    const id = pathname.split("/")[2];
+    const event = getEventById(parseInt(id));
+    title = `${event?.hobby.infinitiv}kompis`;
   }
   return (
     <header className="w-full bg-black text-background px-4 py-12">

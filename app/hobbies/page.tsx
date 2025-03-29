@@ -1,5 +1,5 @@
 import LinkButton from "@/components/linkButton";
-import { interests } from "@/components/interests";
+import { interests } from "@/components/types/interests";
 
 export default function Hobbies() {
   return (

@@ -1,19 +1,11 @@
 "use client";
-import { formatDateWithDay, formatTime } from "./utils/date-utils";
-import { Interest } from "./interests";
+import { formatDateWithDay, formatTime } from "./lib/date-utils";
 import { LikeButton } from "./likebutton";
+import { Event } from "./types/post";
 
-export type Post = {
-  date: Date;
-  place: string;
-  hobby: Interest;
-  description: string;
-  user: { name: string; age: number }; // change to user
-};
-
-export function Posts({ post }: { post: Post }) {
+export function Post({ post }: { post: Event }) {
   return (
-    <div className="rounded-xl relative border p-4 bg-primary">
+    <div className="rounded-xl relative border p-4 bg-primary h-full">
       <p className="font-bold">📍{post.place}</p>
       <p>📅{formatDateWithDay(post.date)}</p>
       <p>🕗{formatTime(post.date)}</p>

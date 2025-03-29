@@ -42,6 +42,9 @@ export function Header() {
     } else if (pathname.startsWith("/careers")) {
       setTitle(`BLI JOBB${ending}`);
       setBade(false);
+    } else if (pathname.startsWith("/turtle")) {
+      setTitle(`NINJA TURTLE`);
+      setBade(false);
     } else {
       setTitle(`...${ending.toUpperCase()}`);
       setBade(false);

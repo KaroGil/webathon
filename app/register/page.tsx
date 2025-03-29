@@ -7,6 +7,7 @@ import Link from "next/link";
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [creep, setCreep] = useState(false);
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,6 +25,11 @@ export default function RegisterPage() {
       callbackUrl: "/",
     });
 
+    if (!creep) {
+      setError("Du kan ikke være en creep for å registrere deg");
+      return;
+    }
+
     if (password !== repeatPassword) {
       setError("Passordene må være like");
       return;
@@ -38,7 +44,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex items-center justify-center mt-8 flex-col">
+    <div className="flex items-center justify-center my-6 flex-col">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 items-center w-72"
@@ -72,7 +78,11 @@ export default function RegisterPage() {
           onChange={(e) => setRepeatPassword(e.target.value)}
           placeholder="Gjenta passord"
         />
-        {error && <p className="text-red-500">{error}</p>}
+        <div className="flex items-center gap-2 flex-row">
+          <label>Jeg er ikke creep</label>
+          <input type="checkbox" onChange={() => setCreep(!creep)} />
+        </div>
+        {error && <p className="text-red-500 text-center">{error}</p>}
         <button
           className="bg-black text-white px-4 py-2 rounded w-full"
           type="submit"

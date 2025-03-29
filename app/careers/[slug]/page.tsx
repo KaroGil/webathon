@@ -46,7 +46,7 @@ export default async function JobPage({ params }: PageProps) {
         <LinkButton
           text="Søk nå"
           url="mailto:jobs@yourcompany.com"
-          className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+          className="mt-4 inline-block px-4 py-2 border border-background rounded-md text-background hover:bg-background hover:foreground transition w-fit"
         />
       </main>
     </div>

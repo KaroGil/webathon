@@ -39,6 +39,9 @@ export function Header() {
       const event = getEventById(parseInt(id));
       setTitle(`${event?.hobby.infinitiv}${ending}`);
       setBade(false);
+    } else if (pathname.startsWith("/careers")) {
+      setTitle(`BLI JOBB${ending}`);
+      setBade(false);
     } else {
       setTitle(`...${ending.toUpperCase()}`);
       setBade(false);

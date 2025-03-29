@@ -8,15 +8,23 @@ export function Footer() {
       <footer className="flex flex-col bottom-0 w-full bg-foreground text-background p-12 border-t">
         <div className="flex flex-row items-center justify-center w-full">
           <p className="uppercase text-lg font-bold">...KOMPIS</p>
-          <Link href="/aboutUs" className="ml-auto flex justify-center">
-            Om oss
-          </Link>
+          <div className="ml-auto flex justify-center gap-4">
+            <Link href="/aboutUs" className="ml-auto flex justify-center">
+              Om oss
+            </Link>
+            <Link href="/careers" className="ml-auto flex justify-center">
+              Jobb
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-row items-center justify-center w-full mt-10 gap-2">
-          <Link href="https://github.com/KaroGil/webathon" target="_blank">
-            <DiGithubBadge size={24} />
-          </Link>
-          <p>Laget av Ninja Turtles 🐢 Mille, Karolina, Johanne og Henrik</p>
+        <div className="flex flex-col items-center justify-center w-full">
+          <div className="flex flex-row items-center justify-center w-full mt-10 gap-2">
+            <Link href="https://github.com/KaroGil/webathon" target="_blank">
+              <DiGithubBadge size={24} />
+            </Link>
+            <p>Laget av Ninja Turtles 🐢 Mille, Karolina, Johanne og Henrik</p>
+          </div>
+          © {new Date().getFullYear()} Your Company. All rights reserved.
         </div>
       </footer>
     </AnimatedIcons>

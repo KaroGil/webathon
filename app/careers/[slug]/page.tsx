@@ -20,7 +20,14 @@ const jobOpenings = [
   },
 ];
 
-export default function JobPage({ params }: { params: { slug: string } }) {
+// ✅ The type for App Router page props
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function JobPage({ params }: PageProps) {
   const job = jobOpenings.find((job) => job.slug === params.slug);
 
   if (!job) {
@@ -34,12 +41,12 @@ export default function JobPage({ params }: { params: { slug: string } }) {
         <p className="text-gray-600 mb-2">
           {job.location} · {job.type}
         </p>
-        <p className="my-6 text-lg">{job.description}</p>
+        <p className="my-8 text-lg">{job.description}</p>
 
         <LinkButton
           text="Søk nå"
-          url="mailto:jobs@kompis.com"
-          className="px-6 py-3 bg-foreground text-background rounded-md hover:bg-backgorund hover:text-foregorund transition"
+          url="mailto:jobs@yourcompany.com"
+          className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
         />
       </main>
     </div>

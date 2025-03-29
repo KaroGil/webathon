@@ -1,41 +1,46 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-// import { useTheme } from "next-themes";
-import type { StaticImageData } from "next/image";
 import turtle from "@/public/turtle.png";
+import type { StaticImageData } from "next/image";
 
 type AnimatedIconsProps = {
   n: number;
   children: React.ReactNode;
 };
 
-export const AnimatedIcons = ({ n, children }: AnimatedIconsProps) => {
-  const keys = [...new Array(n).keys()];
+type IconData = {
+  x: string;
+  y: string;
+};
 
-  const icons = [turtle];
+export const AnimatedIcons = ({ n, children }: AnimatedIconsProps) => {
+  const [iconsData, setIconsData] = useState<IconData[]>([]);
+
+  useEffect(() => {
+    const generated = Array.from({ length: n }).map(() => ({
+      x: `${Math.floor(Math.random() * 95)}%`,
+      y: `${Math.floor(Math.random() * 95)}%`,
+    }));
+    setIconsData(generated);
+  }, [n]);
 
   return (
     <div className="relative">
       <div className="relative z-10">{children}</div>
       <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-        {keys.map((key) => {
-          const xOffset = Math.floor(Math.random() * 95);
-          const yOffset = Math.floor(Math.random() * 95);
-
-          const icon = icons[Math.floor(Math.random() * icons.length)];
-          return (
-            <AnimatedIcon
-              delay={key * 0.5}
-              repeatDelay={7}
-              xOffset={`${xOffset}%`}
-              yOffset={`${yOffset}%`}
-              key={key}
-              icon={icon}
-            />
-          );
-        })}
+        {iconsData.map((pos, index) => (
+          <AnimatedIcon
+            key={index}
+            xOffset={pos.x}
+            yOffset={pos.y}
+            delay={index * 0.5}
+            repeatDelay={5}
+            icon={turtle}
+          />
+        ))}
       </div>
     </div>
   );
@@ -59,8 +64,8 @@ export const AnimatedIcon = ({
   <motion.div
     style={{
       position: "absolute",
-      top: xOffset,
-      left: yOffset,
+      top: yOffset,
+      left: xOffset,
       zIndex: 0,
     }}
     initial={{ opacity: 0 }}
@@ -71,12 +76,12 @@ export const AnimatedIcon = ({
       rotate: [null, -10, 2, -5],
     }}
     transition={{
-      delay: delay,
-      repeatDelay: repeatDelay,
+      delay,
+      repeatDelay,
       duration: 5,
-      repeat: Number.POSITIVE_INFINITY,
+      repeat: Infinity,
     }}
   >
-    <Image src={icon} alt="" height={100} width={100} />
+    <Image src={icon} alt="floating icon" height={100} width={100} />
   </motion.div>
 );

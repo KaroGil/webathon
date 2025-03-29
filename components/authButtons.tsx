@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export default function AuthButtons() {
   const { data: session } = useSession();
-  const user = { id: 1, name: "Ola Nordmann" };
+  const user = { id: 1, name: "Ole Brumm" };
 
   if (session) {
     return <ProfileButton userId={user.id} />;

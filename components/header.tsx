@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AuthButtons from "@/components/authButtons";
 import { usePathname } from "next/navigation";
-import { getInfinitiveBySlug } from "./interests";
+import { getInterestBySlug } from "./interests";
 
 export function Header() {
   const pathname = usePathname();
@@ -12,9 +12,8 @@ export function Header() {
 
   if (pathname.startsWith("/hobbies/")) {
     const hobby = pathname.split("/")[2];
-    const name = getInfinitiveBySlug(hobby);
-    if (!name) return null;
-    title = `${name.toUpperCase()}kompis`;
+    const name = getInterestBySlug(hobby);
+    title = `${name?.infinitiv?.toUpperCase()}kompis`;
   }
   return (
     <header className="w-full bg-black text-background px-4 py-12">

@@ -4,11 +4,6 @@ export function getInterestBySlug(slug: string) {
   return interests.find((interest) => interest.slug === slug);
 }
 
-export function getInfinitiveBySlug(slug: string) {
-  const interest = interests.find((interest) => interest.slug === slug);
-  return interest ? interest.infinitiv : null;
-}
-
 export const interests: Interest[] = [
   { name: "Bading", infinitiv: "Bade", slug: "bade" },
   { name: "Fotball", infinitiv: "Fotball", slug: "fotball" },

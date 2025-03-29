@@ -15,7 +15,7 @@ export default async function Home() {
           <div className="flex flex-col gap-10 items-center">
             <h1>Ingen å dra på ... med?</h1>
 
-            <LinkButton text="BLI KOMPIS" url="/login" />
+            <LinkButton text="BLI KOMPIS" url="/register" />
           </div>
         )}
       </div>

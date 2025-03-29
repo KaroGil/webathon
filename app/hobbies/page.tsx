@@ -14,6 +14,14 @@ export default function Hobbies() {
           />
         ))}
       </div>
+      <p className="text-center font-lg flex flex-col gap-2">
+        Savner du noe?
+        <LinkButton
+          url="/hobbies/add"
+          text="Legg til en interesse"
+          className="text-sm"
+        />
+      </p>
     </div>
   );
 }

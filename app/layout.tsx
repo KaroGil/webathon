@@ -29,6 +29,7 @@ export default function RootLayout({
         <SessionProviderWrapper>
           <Header />
           <main className="flex-grow">{children}</main>
+          <div className="flex-grow mt-50" />
         </SessionProviderWrapper>
         <Footer />
       </body>

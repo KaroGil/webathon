@@ -9,8 +9,8 @@ export default async function InterestMenu() {
   const user = session?.user;
 
   return (
-    <div className="flex flex-col gap-8 items-center justify-center m-6 font-bold text-xl">
-      <h1>Hvilke interesser har du?</h1>
+    <div className="flex flex-col gap-16 items-center justify-center m-6 font-bold text-xl">
+      <h1 className="text-3xl">Hvilke interesser har du?</h1>
 
       <div className="w-full max-w-screen overflow-hidden">
         <div className="animate-scroll flex gap-4 whitespace-nowrap w-max">

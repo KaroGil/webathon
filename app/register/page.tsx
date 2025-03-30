@@ -44,7 +44,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex items-center justify-center my-6 flex-col">
+    <div className="flex items-center justify-center my-12 flex-col">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 items-center w-72"

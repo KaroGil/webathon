@@ -16,7 +16,6 @@ export function Header() {
   const [ending, setEnding] = useState("kompis");
   const [bergenser, setBergenser] = useState(false);
 
-  // 🧠 Update ending when bergenser changes
   useEffect(() => {
     if (bergenser) {
       setEnding("tjommi");
@@ -25,7 +24,6 @@ export function Header() {
     }
   }, [bergenser]);
 
-  // 🧠 Update title and bade when pathname or ending changes
   useEffect(() => {
     if (pathname.startsWith("/hobbies/")) {
       const hobby = pathname.split("/")[2];

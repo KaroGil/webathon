@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import Link from "next/link";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -79,8 +80,8 @@ export default function RegisterPage() {
           placeholder="Gjenta passord"
         />
         <div className="flex items-center gap-2 flex-row">
+          <Checkbox onChange={() => setCreep(!creep)} />
           <label>Jeg er ikke creep</label>
-          <input type="checkbox" onChange={() => setCreep(!creep)} />
         </div>
         {error && <p className="text-red-500 text-center">{error}</p>}
         <button

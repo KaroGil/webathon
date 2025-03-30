@@ -60,7 +60,7 @@ export function Header() {
           {title}
         </Link>
 
-        <div className="mt-4 md:mt-0 md:ml-auto flex items-center gap-2 flex-col md:mr-6">
+        <div className="mt-4 md:mt-0 md:ml-auto flex items-center gap-2 flex-col">
           <AuthButtons />
         </div>
       </div>

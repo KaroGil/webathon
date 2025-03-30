@@ -5,7 +5,7 @@ import { DiGithubBadge } from "react-icons/di";
 export function Footer() {
   return (
     <AnimatedIcons n={10}>
-      <footer className="flex flex-col bottom-0 w-full bg-foreground text-background p-12 border-t mt-50">
+      <footer className="flex flex-col bottom-0 w-full bg-foreground text-background p-12 border-t">
         <div className="flex flex-row items-center justify-center w-full">
           <p className="uppercase text-lg font-bold">...KOMPIS</p>
           <div className="ml-auto flex justify-center gap-4">

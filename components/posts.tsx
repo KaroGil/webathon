@@ -1,5 +1,5 @@
 "use client";
-import { Calendar, Clock, User } from "lucide-react";
+import { Calendar, Clock, Trophy, User } from "lucide-react";
 import { formatDateWithDay, formatTime } from "./lib/date-utils";
 import { Event } from "./types/post";
 import { useState } from "react";
@@ -29,6 +29,10 @@ export function Post({ post, link }: { post: Event; link: string }) {
         <div className="flex space-x-2">
           <User className="size-4" />
           <p>{post.user.name}</p>
+        </div>
+        <div className="flex space-x-2 mb-2">
+          <Trophy className="size-4" />
+          <p>{post.hobby.name}</p>
         </div>
         <p className="line-clamp-3">{post.description}</p>
       </Link>

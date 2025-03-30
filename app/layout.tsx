@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import SessionProviderWrapper from "@/components/session-provider";
 import { Footer } from "@/components/footer";
+import { LanguageProvider } from "@/components/hooks/use-language";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -26,12 +27,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <SessionProviderWrapper>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <div className="flex-grow mt-50" />
-        </SessionProviderWrapper>
-        <Footer />
+        <LanguageProvider>
+          <SessionProviderWrapper>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <div className="flex-grow mt-50" />
+          </SessionProviderWrapper>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

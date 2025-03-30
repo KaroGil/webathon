@@ -24,8 +24,8 @@ const LanguageMenu = () => {
       <label className="flex items-center gap-1 text-sm">
         <input
           type="checkbox"
-          checked={language == "no"}
-          onChange={() => setLanguage(language == "no" ? "en" : "no")}
+          checked={language == "en"}
+          onChange={() => setLanguage(language == "en" ? "no" : "en")}
         />
         Bergenser-modus
       </label>

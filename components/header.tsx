@@ -11,19 +11,19 @@ import useLanguage from "./hooks/use-language";
 
 export function Header() {
   const pathname = usePathname();
-  const bergenser = useLanguage();
+  const notBergenser = useLanguage();
 
   const [bade, setBade] = useState(false);
   const [title, setTitle] = useState("...KOMPIS");
   const [ending, setEnding] = useState("kompis");
 
   useEffect(() => {
-    if (bergenser) {
-      setEnding("tjommi");
-    } else {
+    if (notBergenser) {
       setEnding("kompis");
+    } else {
+      setEnding("tjommi");
     }
-  }, [bergenser]);
+  }, [notBergenser]);
 
   useEffect(() => {
     if (pathname.startsWith("/hobbies/")) {
@@ -60,7 +60,7 @@ export function Header() {
           {title}
         </Link>
 
-        <div className="mt-4 md:mt-0 md:ml-auto flex items-center gap-2 flex-col">
+        <div className="mt-4 md:mt-0 md:ml-auto flex items-center gap-2 flex-col md:mr-6">
           <AuthButtons />
         </div>
       </div>

@@ -24,7 +24,7 @@ export function Footer() {
             </Link>
             <p>Laget av Ninja Turtles 🐢 Mille, Karolina, Johanne og Henrik</p>
           </div>
-          © {new Date().getFullYear()} ...Kompis. All rights reserved.
+          © {new Date().getFullYear()} ...Kompis. All rights not reserved.
         </div>
       </footer>
     </AnimatedIcons>

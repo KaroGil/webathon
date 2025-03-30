@@ -7,14 +7,15 @@ import { getInterestBySlug } from "./types/interests";
 import { getEventById } from "./types/post";
 import { useEffect, useState } from "react";
 import { AnimatedIcons } from "@/components/animation/animatedIcons";
+import useLanguage from "./hooks/use-language";
 
 export function Header() {
   const pathname = usePathname();
+  const bergenser = useLanguage();
 
   const [bade, setBade] = useState(false);
   const [title, setTitle] = useState("...KOMPIS");
   const [ending, setEnding] = useState("kompis");
-  const [bergenser, setBergenser] = useState(false);
 
   useEffect(() => {
     if (bergenser) {
@@ -61,15 +62,6 @@ export function Header() {
 
         <div className="mt-4 md:mt-0 md:ml-auto flex items-center gap-2 flex-col">
           <AuthButtons />
-          <label className="flex items-center gap-1 text-sm">
-            <input
-              type="checkbox"
-              id="toggle"
-              checked={bergenser}
-              onChange={() => setBergenser(!bergenser)}
-            />
-            Bergenser-modus
-          </label>
         </div>
       </div>
     </header>

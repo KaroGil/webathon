@@ -2,6 +2,7 @@
 import { Post } from "@/components/posts";
 import { posts } from "@/components/types/post";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
@@ -20,16 +21,21 @@ const LanguageMenu = () => {
   }, [language]);
 
   return (
-    <div className="flex items-center gap-2">
-      <label className="flex items-center gap-1 text-sm">
-        <input
-          type="checkbox"
+    <>
+      <div className="flex items-center space-x-2">
+        <Checkbox
+          id="terms"
           checked={language == "en"}
-          onChange={() => setLanguage(language == "en" ? "no" : "en")}
+          onCheckedChange={() => setLanguage(language == "en" ? "no" : "en")}
         />
-        Bergenser-modus
-      </label>
-    </div>
+        <label
+          htmlFor="terms"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Bergenser-modus
+        </label>
+      </div>
+    </>
   );
 };
 

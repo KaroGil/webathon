@@ -8,12 +8,15 @@ export function Footer() {
       <footer className="flex flex-col bottom-0 w-full bg-foreground text-background p-12 border-t">
         <div className="flex flex-row items-center justify-center w-full">
           <p className="uppercase text-lg font-bold">...KOMPIS</p>
-          <div className="ml-auto flex justify-center gap-4">
+          <div className="ml-auto flex justify-center gap-5">
             <Link href="/aboutUs" className="ml-auto flex justify-center">
               Om oss
             </Link>
             <Link href="/careers" className="ml-auto flex justify-center">
               Jobb
+            </Link>
+            <Link href="/rent" className="ml-auto flex justify-center">
+              Leie
             </Link>
           </div>
         </div>

@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { getEventsToUser } from "@/types/event";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { EventComponent } from "../interests/[slug]/page";
 import { logout } from "../actions/signout";
 import { getUserFromId } from "@/types/profile";
 import { handleFromBergen } from "../actions/from-bergen";
+import { EventComponent } from "../interests/[slug]/event-component";
 
 export default async function ProfilePage() {
   const supabase = await createClient();

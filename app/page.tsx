@@ -1,25 +1,13 @@
-import InterestsMenu from "@/components/interestsMenu";
-import LinkButton from "../components/linkButton";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@lib/authOptions";
+import InterestMenu from "@/components/interests-menu";
+import { WelcomeMessage } from "@/components/welcome-message";
 
-export default async function Home() {
-  const session = await getServerSession(authOptions);
-
+export default function Home() {
   return (
     <div className="flex flex-col gap-12 items-center justify-center m-20 font-bold text-xl h-full">
       <div>
-        {session ? (
-          <p>Velkommen, {session.user?.name}!</p>
-        ) : (
-          <div className="flex flex-col gap-10 items-center">
-            <h1>Ingen å dra på ... med?</h1>
-
-            <LinkButton text="BLI KOMPIS" url="/register" />
-          </div>
-        )}
+        <WelcomeMessage />
       </div>
-      <InterestsMenu />
+      <InterestMenu />
     </div>
   );
 }

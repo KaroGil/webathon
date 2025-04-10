@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import LinkButton from "@/components/linkButton";
+import LinkButton from "@/components/link-button";
 
 const jobOpenings = [
   {

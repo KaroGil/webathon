@@ -52,7 +52,7 @@ export default function RegisterPage() {
       </form>
       <p className="mt-4">
         Er du allerede kompis? {""}
-        <Link href="/login" className="hover:underline">
+        <Link href="/auth/login" className="hover:underline">
           Logg inn
         </Link>
       </p>

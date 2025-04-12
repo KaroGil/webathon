@@ -32,7 +32,7 @@ export default function LoginPage() {
       </form>
       <p className="mt-4">
         Er du ikke kompis enda?¿ {""}
-        <Link href="/register" className="hover:underline">
+        <Link href="/auth/register" className="hover:underline">
           Registrer deg
         </Link>
       </p>

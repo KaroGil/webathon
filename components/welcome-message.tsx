@@ -13,7 +13,7 @@ export async function WelcomeMessage() {
     <div className="flex flex-col gap-10 items-center">
       <h1>Ingen å dra på ... med?</h1>
 
-      <LinkButton text="BLI KOMPIS" url="/signup" />
+      <LinkButton text="BLI KOMPIS" url="auth/register" />
     </div>
   );
 }

@@ -15,6 +15,13 @@ export default function AddInterest() {
           className="border p-2 rounded w-full"
           required
         />
+        <input
+          type="text"
+          name="infinitiv"
+          placeholder="Interesse i infinitiv"
+          className="border p-2 rounded w-full"
+          required
+        />
         <button
           type="submit"
           className="bg-foreground text-background text-center font-bold px-12 py-4 rounded-lg border-2 border-background hover:bg-background hover:text-foreground transition-all duration-300 $"

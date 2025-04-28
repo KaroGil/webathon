@@ -1,77 +1,44 @@
-"use client";
-
 import Link from "next/link";
-import AuthButtons from "@/components/authButtons";
-import { usePathname } from "next/navigation";
-import { getInterestBySlug } from "./types/interests";
-import { getEventById } from "./types/post";
-import { useEffect, useState } from "react";
-import { AnimatedIcons } from "@/components/animation/animatedIcons";
-import useLanguage from "./hooks/use-language";
+import { createClient } from "@/utils/supabase/server";
+import { UserIcon } from "lucide-react";
+import { Button } from "./ui/button";
+import { getUserFromId } from "@/types/profile";
+import HeaderText from "./header-text";
 
-export function Header() {
-  const pathname = usePathname();
-  const notBergenser = useLanguage();
+export async function Header() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  const [bade, setBade] = useState(false);
-  const [title, setTitle] = useState("...KOMPIS");
-  const [ending, setEnding] = useState("kompis");
+  const profile = user ? await getUserFromId(user?.id || "") : null;
 
-  useEffect(() => {
-    if (notBergenser) {
-      setEnding("kompis");
-    } else {
-      setEnding("tjommi");
-    }
-  }, [notBergenser]);
-
-  useEffect(() => {
-    if (pathname.startsWith("/hobbies/")) {
-      const hobby = pathname.split("/")[2];
-      const name = getInterestBySlug(hobby);
-      console.log("Got hobby name:", name);
-
-      setTitle(`${name?.infinitiv?.toUpperCase()}${ending}`);
-      setBade(name?.name === "Bading");
-    } else if (pathname.startsWith("/event/")) {
-      const id = pathname.split("/")[2];
-      const event = getEventById(parseInt(id));
-      setTitle(`${event?.hobby.infinitiv}${ending}`);
-      setBade(false);
-    } else if (pathname.startsWith("/careers")) {
-      setTitle(`BLI JOBB${ending}`);
-      setBade(false);
-    } else if (pathname.startsWith("/turtle")) {
-      setTitle(`NINJA TURTLE`);
-      setBade(false);
-    } else {
-      setTitle(`...${ending.toUpperCase()}`);
-      setBade(false);
-    }
-  }, [pathname, ending]);
-
-  const headerContent = (
+  return (
     <header className="w-full bg-black text-background px-4 py-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-center justify-between relative">
+      <div className="max-w-7xl mx-auto relative flex items-center justify-center">
         <Link
           href="/"
-          className="uppercase font-bold text-5xl text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2"
+          className="uppercase font-bold text-5xl text-center w-full"
         >
-          {title}
+          <HeaderText is_from_bergen={profile?.is_from_bergen || false} />
         </Link>
-
-        <div className="mt-4 md:mt-0 md:ml-auto flex items-center gap-2 flex-col">
-          <AuthButtons />
+        <div className="absolute right-0">
+          {user ? (
+            <Link
+              href="/profile"
+              className="h-10 w-10 bg-background rounded-full flex justify-center items-center text-foreground mx-6"
+            >
+              <UserIcon className="h-6 w-6" />
+            </Link>
+          ) : (
+            <Link href="/auth/login">
+              <Button className="font-bold hover:bg-foreground hover:text-background transition-all duration-300">
+                Logg inn
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </header>
-  );
-
-  return bade ? (
-    <AnimatedIcons n={10} bade={bade}>
-      {headerContent}
-    </AnimatedIcons>
-  ) : (
-    headerContent
   );
 }

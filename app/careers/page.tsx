@@ -1,4 +1,4 @@
-import LinkButton from "@/components/linkButton";
+import LinkButton from "@/components/link-button";
 import React from "react";
 
 const jobOpenings = [

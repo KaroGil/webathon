@@ -21,7 +21,6 @@ Savner du en Rustkompis? Se relevante Rust arrangementer.
 Personlig profil med muligheten til å lage egne arrangementer.
 <img src="app/assets/profil.png" alt="Beskrivelse" width="800" />
 
-Deployment: https://webathon-ivory.vercel.app/
 
 
 **Teknologi**
